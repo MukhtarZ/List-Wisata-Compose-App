@@ -5,21 +5,21 @@ import com.google.gson.annotations.SerializedName
 
 data class Identity(
     @SerializedName("created_at")
-    val createdAt: String?,
+    val createdAt: String,
     @SerializedName("email")
-    val email: String?,
+    val email: String,
     @SerializedName("id")
-    val id: String?,
+    val id: String,
     @SerializedName("identity_data")
-    val identityData: IdentityData?,
+    val identityData: IdentityData,
     @SerializedName("identity_id")
-    val identityId: String?,
+    val identityId: String,
     @SerializedName("last_sign_in_at")
-    val lastSignInAt: String?,
+    val lastSignInAt: String,
     @SerializedName("provider")
-    val provider: String?,
+    val provider: String,
     @SerializedName("updated_at")
-    val updatedAt: String?,
+    val updatedAt: String,
     @SerializedName("user_id")
-    val userId: String?
+    val userId: String
 )

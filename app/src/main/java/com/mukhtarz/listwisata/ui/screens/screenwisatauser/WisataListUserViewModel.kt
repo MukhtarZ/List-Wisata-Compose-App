@@ -1,4 +1,4 @@
-package com.mukhtarz.listwisata.ui.screens.screenwisata
+package com.mukhtarz.listwisata.ui.screens.screenwisatauser
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,10 +12,10 @@ import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
-class WisataListViewModel(private val repository: ListWisataRepository) : ViewModel() {
+class WisataListUserViewModel(private val repository: ListWisataRepository) : ViewModel() {
     private  val _listWisatastate = MutableStateFlow<ResponseState<WisataListAPI>>(ResponseState.Idle)
 
-    val loginState =_listWisatastate.asStateFlow()
+    val wisataState =_listWisatastate.asStateFlow()
         .stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(5000),

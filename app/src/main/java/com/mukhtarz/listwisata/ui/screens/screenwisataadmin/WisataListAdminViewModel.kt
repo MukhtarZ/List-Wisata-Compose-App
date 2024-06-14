@@ -1,7 +1,8 @@
-package com.mukhtarz.listwisata.ui.screens.screen_login_and_register
+package com.mukhtarz.listwisata.ui.screens.screenwisataadmin
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mukhtarz.listwisata.data.remote.model.list.wisata_list.WisataListAPI
 import com.mukhtarz.listwisata.data.repository.ListWisataRepository
 import com.rmaprojects.apirequeststate.ResponseState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,19 +12,20 @@ import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
-class RegisterViewModel(private val repository: ListWisataRepository) : ViewModel() {
-    private  val _registerstate = MutableStateFlow<ResponseState<WisataListAPI>>(ResponseState.Idle)
+class WisataListAdminViewModel(private val repository: ListWisataRepository) : ViewModel() {
+    private val _listWisatastate =
+        MutableStateFlow<ResponseState<WisataListAPI>>(ResponseState.Idle)
 
-    val loginState =_registerstate.asStateFlow()
+    val wisataAdminState = _listWisatastate.asStateFlow()
         .stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(5000),
             ResponseState.Idle
         )
 
-    fun getData(){
+    fun getData() {
         viewModelScope.launch {
-            _registerstate.emitAll(repository.getAllDataWisata())
+            _listWisatastate.emitAll(repository.getAllDataWisata())
         }
     }
 }

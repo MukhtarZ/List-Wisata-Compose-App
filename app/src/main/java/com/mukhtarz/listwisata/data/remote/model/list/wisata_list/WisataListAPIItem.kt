@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class WisataListAPIItem(
     @SerializedName("author_id")
-    val authorId: Any?,
+    val authorId: String?,
     @SerializedName("created_at")
     val createdAt: String?,
     @SerializedName("gambar_wisata")

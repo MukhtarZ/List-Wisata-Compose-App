@@ -5,13 +5,13 @@ import com.google.gson.annotations.SerializedName
 
 data class UserMetadata(
     @SerializedName("email")
-    val email: String?,
+    val email: String,
     @SerializedName("email_verified")
-    val emailVerified: Boolean?,
+    val emailVerified: Boolean,
     @SerializedName("phone_verified")
-    val phoneVerified: Boolean?,
+    val phoneVerified: Boolean,
     @SerializedName("sub")
-    val sub: String?,
+    val sub: String,
     @SerializedName("username")
-    val username: String?
+    val username: String
 )

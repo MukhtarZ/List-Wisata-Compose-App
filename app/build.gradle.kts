@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    kotlin("plugin.serialization") version "2.0.0"
+
 }
 
 android {
@@ -67,15 +69,31 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+
     implementation(libs.retrofit)
+
     implementation (libs.converter.gson)
+
     implementation (libs.coil.compose)
+
     implementation (libs.androidx.lifecycle.viewmodel.compose)
     implementation (libs.androidx.lifecycle.runtime.compose)
+
     implementation(libs.androidx.adaptive)
     implementation(libs.androidx.adaptive.layout)
     implementation(libs.androidx.adaptive.navigation)
+
     implementation(libs.androidx.navigation.compose)
+
     implementation (libs.apiresponsewrapper)
+
     implementation(libs.logging.interceptor)
+
+    implementation(libs.kotlinx.serialization.json)
+
+    implementation(libs.kotpref)
+
+    implementation(libs.material3)
+
+    implementation (libs.accompanist.swiperefresh)
 }

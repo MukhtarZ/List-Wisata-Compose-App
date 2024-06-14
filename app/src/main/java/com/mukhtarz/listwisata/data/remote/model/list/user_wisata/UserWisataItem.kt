@@ -8,8 +8,11 @@ data class UserWisataItem(
     val createdAt: String?,
     @SerializedName("id")
     val id: String?,
+    @SerializedName("email")
+    val email: Any?,
     @SerializedName("is_admin")
     val isAdmin: Boolean?,
     @SerializedName("username")
     val username: String?
+
 )

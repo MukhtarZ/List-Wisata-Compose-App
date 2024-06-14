@@ -1,4 +1,4 @@
-package com.mukhtarz.listwisata.ui.screens.screenlogin
+package com.mukhtarz.listwisata.ui.screens.screen_register
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,20 +15,24 @@ import kotlinx.serialization.json.JsonObject
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 
-class LoginViewModel(private val repository: ListWisataRepository) : ViewModel() {
-    private val _loginstate = MutableStateFlow<ResponseState<UserLogin>>(ResponseState.Idle)
+class RegisterViewModel(private val repository: ListWisataRepository) : ViewModel() {
+    private val _registerstate = MutableStateFlow<ResponseState<UserLogin>>(ResponseState.Idle)
 
-    val loginState = _loginstate.asStateFlow()
+    val registerState = _registerstate.asStateFlow()
         .stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(5000),
             ResponseState.Idle
+
         )
-    fun postUserLogin(users: JsonObject) {
+
+    fun postSignUp(user: JsonObject) {
         viewModelScope.launch {
-            _loginstate.emitAll(
-                repository.userLogin(
-                    user = users.toString().toRequestBody("application/json".toMediaTypeOrNull())
+            _registerstate.emitAll(
+              flow = repository.userSignUp(
+                    user = user
+                        .toString()
+                        .toRequestBody("application/json".toMediaTypeOrNull())
                 )
             )
         }
